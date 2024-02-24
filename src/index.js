@@ -4,7 +4,6 @@ const config = require("./config/config");
 const { MongoClient, ServerApiVersion } = require("mongodb");
 const uri = config.mongodb_uri;
 const app = express();
-
 // Middleware
 app.use(cors());
 app.use(express.json());
