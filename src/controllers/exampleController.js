@@ -4,7 +4,7 @@ const exampleService = require("../services/exampleService");
 // Define your controller methods
 exports.getExamples = async (req, res) => {
   try {
-    const examples = await exampleService.getExamples();
+    const examples = await exampleService.getExamples(req, res);
     res.json(examples);
   } catch (error) {
     res.status(500).json({ error: "Internal Server Error" });

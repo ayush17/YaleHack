@@ -9,8 +9,8 @@ app.use(cors());
 app.use(express.json());
 
 // // Define your routes here
-// const exampleRoutes = require("./routes/exampleRoutes");
-// app.use("/api/example", exampleRoutes);
+const exampleRoutes = require("./routes/exampleRoutes");
+app.use("/api/rooms", exampleRoutes);
 
 // Start the server
 app.listen(config.port, () => {
