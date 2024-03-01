@@ -1,20 +1,20 @@
 // Import any required services or models here
-const exampleService = require("../services/exampleService");
+const roomService = require("../services/roomService");
 
 // Define your controller methods
-exports.getExamples = async (req, res) => {
+exports.getRooms = async (req, res) => {
   try {
-    const examples = await exampleService.getExamples(req, res);
+    const examples = await roomService.getRooms();
     res.json(examples);
   } catch (error) {
     res.status(500).json({ error: "Internal Server Error" });
   }
 };
 
-exports.createExample = async (req, res) => {
+exports.createRoom = async (req, res) => {
   try {
-    const { name } = req.body;
-    const newExample = await exampleService.createExample(name);
+    let room = req.body.room;
+    const newExample = await roomService.createRoom(room);
     res.json(newExample);
   } catch (error) {
     res.status(500).json({ error: "Internal Server Error" });
