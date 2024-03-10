@@ -20,10 +20,7 @@ app.listen(config.port, () => {
 async function run() {
   try {
     const uri = process.env.MONGODB_URI || config.mongodb_uri; // Use Railway shared variable if available, else fallback to local config
-    console.log(uri)
-    const sharedVariable=`${{ shared.mongodb_uri }}`
-    console.log(shared.mongodb_uri);
-    mongoose.connect(sharedVariable).then(() => {
+    mongoose.connect(uri).then(() => {
       console.log(
         "Pinged your deployment. You successfully connected to MongoDB!"
       );
