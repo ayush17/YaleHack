@@ -20,6 +20,7 @@ app.listen(config.port, () => {
 async function run() {
   try {
     const uri=`${{shared.mongodb_uri}}`
+    console.log(uri)
     mongoose.connect(uri).then(() => {
       console.log(
         "Pinged your deployment. You successfully connected to MongoDB!"
