@@ -3,7 +3,8 @@ const cors = require("cors");
 const mongoose = require("mongoose")
 
 const config = require("./config/config");
-const uri = config.mongodb_uri;
+const uri =${{shared.mongodb_uri}};
+// const uri=config.mongodb_uri
 const app = express();
 
 const roomRoute = require('./routes/roomsRoute.js')
