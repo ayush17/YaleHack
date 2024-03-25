@@ -18,6 +18,10 @@ const RoomSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    address: {
+      type: String,
+      required: true,
+    },
     maxCount: {
       type: Number,
       default: 8,
