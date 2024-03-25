@@ -1,10 +1,16 @@
 const mongoose = require("mongoose");
-const ObjectId = mongoose.Types.ObjectId;
 
-var RoomSchema = new mongoose.Schema(
+const RoomSchema = new mongoose.Schema(
   {
-    owner: { type: ObjectId, ref: "Student" },
-    name: {
+    roomId: {
+      type: Number,
+      required: true,
+    },
+    ownerId: {
+      type: Number,
+      required: true,
+    },
+    owner: {
       type: String,
       required: true,
     },
@@ -13,18 +19,50 @@ var RoomSchema = new mongoose.Schema(
       required: true,
     },
     maxCount: {
-      type : Number,
-      default: 8
+      type: Number,
+      default: 8,
     },
-    currentCount: Number,
-    location: {
-      lat: Number,
-      long: Number,
+    participants: [
+      {
+        userId: {
+          type: Number,
+          required: true,
+        },
+        username: {
+          type: String,
+          required: true,
+        },
+      },
+    ],
+    currentLocation: {
+      latitude: {
+        type: Number,
+        required: true,
+      },
+      longitude: {
+        type: Number,
+        required: true,
+      },
     },
-    locationName: String,
+    destinationLocation: {
+      latitude: {
+        type: Number,
+        required: true,
+      },
+      longitude: {
+        type: Number,
+        required: true,
+      },
+    },
+    time: {
+      type: Date,
+      required: true,
+    },
     description: String,
   },
   { timestamps: { createdAt: "created_at" } }
 );
 
-const Room = (module.exports = mongoose.model("Room", RoomSchema));
+const Room = mongoose.model("Room", RoomSchema);
+
+module.exports = Room;

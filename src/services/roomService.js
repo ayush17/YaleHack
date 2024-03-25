@@ -6,24 +6,24 @@ exports.getRooms = async () => {
 };
 
 exports.createRoom = async (room) => {
-  room.owner = new ObjectId()
+  // room.ownerId = new ObjectId();
   let newRoom = new Room(room);
-  let error = newRoom.validateSync()
-  if (error){
+  let error = newRoom.validateSync();
+  if (error) {
     return {
       errorFlag: true,
       error: {
         name: error.name,
-        message: error.message
+        message: error.message,
       },
-      response: null
-    }
+      response: null,
+    };
   }
-  
-  let response = await newRoom.save()
+
+  let response = await newRoom.save();
   return {
-    errorFlag: false, 
+    errorFlag: false,
     error: null,
-    response: response
-  }
+    response: response,
+  };
 };

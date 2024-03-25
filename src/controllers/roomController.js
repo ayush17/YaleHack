@@ -7,7 +7,7 @@ exports.getRooms = async (req, res) => {
     const examples = await roomService.getRooms();
     res.json(examples);
   } catch (error) {
-    res.status(500).json({ error: "Internal Server Error" });
+    res.status(500).json({ error: `Internal Server Error:${error}` });
   }
 };
 
@@ -17,6 +17,6 @@ exports.createRoom = async (req, res) => {
     const newExample = await roomService.createRoom(room);
     res.json(newExample);
   } catch (error) {
-    res.status(500).json({ error: "Internal Server Error" });
+    res.status(500).json({ error: `Internal Server Error:${error}` });
   }
 };
