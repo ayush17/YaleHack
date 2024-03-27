@@ -23,7 +23,8 @@ const userController = require("../controllers/userController");
  *       404:
  *         description: User not found
  */
-router.get("/:userId", userController.getUserById);
+router.get("/login", userController.getUserById);
+router.get("/signup", userController.createUser);
 
 /**
  * @swagger

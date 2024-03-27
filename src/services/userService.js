@@ -1,8 +1,8 @@
 const User = require("../models/user");
 
-exports.getUserById = async (userId) => {
+exports.getUserById = async (email) => {
   try {
-    const user = await User.find({ userId });
+    const user = await User.find({ email });
     return user;
   } catch (error) {
     throw new Error(`Error retrieving user by ID: ${error}`);
