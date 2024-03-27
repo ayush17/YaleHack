@@ -20,3 +20,13 @@ exports.createRoom = async (req, res) => {
     res.status(500).json({ error: `Internal Server Error:${error}` });
   }
 };
+
+exports.getRoomsByOwnerId = async (req, res) => {
+  try {
+    const ownerId = req.params.ownerId;
+    const rooms = await roomService.getRoomByOwnerId(ownerId);
+    res.json(rooms);
+  } catch (error) {
+    res.status(500).json({ error: `Internal Server Error:${error}` });
+  }
+};

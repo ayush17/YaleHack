@@ -1,6 +1,26 @@
 const { ObjectId } = require("mongodb");
 const Room = require("../models/room.js");
 
+exports.getRoomByOwnerId = async (ownerId) => {
+  try {
+    const rooms = await Room.find({ ownerId });
+    return {
+      errorFlag: false,
+      error: null,
+      response: rooms,
+    };
+  } catch (err) {
+    return {
+      errorFlag: true,
+      error: {
+        name: err.name,
+        message: err.message,
+      },
+      response: null,
+    };
+  }
+};
+
 exports.getRooms = async () => {
   return await Room.find();
 };
