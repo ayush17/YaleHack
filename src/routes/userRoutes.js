@@ -24,7 +24,7 @@ const userController = require("../controllers/userController");
  *         description: User not found
  */
 router.get("/login", userController.getUserById);
-router.get("/signup", userController.createUser);
+router.post("/signup", userController.createUser);
 
 /**
  * @swagger
@@ -45,6 +45,5 @@ router.get("/signup", userController.createUser);
  * schema:
  * $ref: '#/components/schemas/User'
  */
-router.post("/", userController.createUser);
 
 module.exports = router;
