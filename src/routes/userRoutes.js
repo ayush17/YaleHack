@@ -23,7 +23,7 @@ const userController = require("../controllers/userController");
  *       404:
  *         description: User not found
  */
-router.get("/login", userController.getUserById);
+router.post("/login", userController.getUserById);
 router.post("/signup", userController.createUser);
 
 /**
