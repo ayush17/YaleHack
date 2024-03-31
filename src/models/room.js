@@ -7,7 +7,7 @@ const RoomSchema = new mongoose.Schema(
       required: true,
     },
     ownerId: {
-      type: String,
+      type: Number,
       required: true,
     },
     owner: {
